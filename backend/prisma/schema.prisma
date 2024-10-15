@@ -1,0 +1,154 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id        String      @id @default(cuid())
+  name      String
+  image     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  products  Product[]
+}
+
+model Coupon {
+  id                  String      @id @default(cuid())
+  code                String   @unique
+  discountPercentage  Float
+  expirationDate      DateTime
+  isActive            Boolean  @default(true)
+  userId              String      @unique
+  user                User     @relation(fields: [userId], references: [id])
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
+
+model Order {
+  id          String      @id @default(cuid())
+  userId      String?
+  paymentId   String?
+  user        User?    @relation(fields: [userId], references: [id])
+  payment     Payment? @relation(fields: [paymentId], references: [id])
+  items       Json
+  orderDate   DateTime @default(now())
+  address     Json
+  orderStatus String   @default("processing")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Payment {
+  id                 String      @id @default(cuid())
+  razorpayOrderId    String
+  razorpayPaymentId  String
+  razorpaySignature  String
+  date               DateTime @default(now())
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  order              Order[]
+}
+
+model Review {
+  id        String      @id @default(cuid())
+  productId String
+  userId    String
+  product   Product  @relation(fields: [productId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+  rating    Int
+  review    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model User {
+  id                      String       @id @default(cuid())
+  email                   String    @unique
+  password                String
+  name                    String
+  role                    String    @default("customer")
+  lastLogin               DateTime  @default(now())
+  isVerified              Boolean   @default(false)
+  resetPasswordToken      String?
+  resetPasswordExpiresAt  DateTime?
+  verificationToken       String?
+  verificationTokenExpiresAt DateTime?
+  cartItems               CartItem[]
+  wishList                Wishlist[]
+  addresses               Address[]
+  orders                  Order[]
+  coupons                 Coupon[]
+  tokens                  Token[]
+  reviews                 Review[]
+  createdAt               DateTime  @default(now())
+  updatedAt               DateTime  @updatedAt
+}
+
+model CartItem {
+  id        String   @id @default(cuid())
+  userId    String
+  productId String
+  quantity  Int
+  size      String
+  user      User     @relation(fields: [userId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Wishlist {
+  id        String   @id @default(cuid())
+  userId    String
+  productId String
+  user      User     @relation(fields: [userId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id])
+}
+
+model Token {
+  id        String      @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  token     String
+  createdAt DateTime @default(now())
+  expiresAt DateTime @default(now()) @map("createdAt + interval '7 days'")
+}
+
+model Address {
+  id        String      @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  name      String
+  contact   String
+  address   String
+  city      String
+  pincode   String
+  country   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id          String    @id @default(cuid())
+  name        String
+  description String
+  color       String
+  batchId     String
+  price       Float     
+  images      String[]
+  categoryId  String
+  category    Category  @relation(fields: [categoryId], references: [id])
+  isFeatured  Boolean   @default(false)
+  gender      Int       @default(0) 
+  for         Int       @default(0) 
+  sizes       Json 
+  reviews     Review[]
+  wishList    Wishlist[]
+  cartItem    CartItem[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
