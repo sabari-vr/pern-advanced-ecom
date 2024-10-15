@@ -60,7 +60,7 @@ const Navbar = () => {
                         )}
                         {isAdmin && (
                             <Link
-                                className=' text-black px-3 py-1 rounded-md
+                                className=' text-black  py-1 rounded-md
 								 transition duration-300 ease-in-out flex items-center'
                                 to={"/secret-dashboard"}
                             >
@@ -72,7 +72,7 @@ const Navbar = () => {
                         {user ? (
                             <div className="relative inline-block text-left" ref={dropdownRef} >
                                 <button
-                                    className="text-black  py-2 px-4 rounded-md flex items-center transition duration-300 ease-in-out"
+                                    className="text-black  py-2 md:px-4 rounded-md flex items-center transition duration-300 ease-in-out"
                                     onClick={toggleDropdown}
                                 >
                                     <User size={18} />
