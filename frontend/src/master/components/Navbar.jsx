@@ -60,7 +60,7 @@ const Navbar = () => {
                         )}
                         {isAdmin && (
                             <Link
-                                className='bg-gray-700 hover:bg-gray-900 text-white px-3 py-1 rounded-md font-medium
+                                className=' text-black px-3 py-1 rounded-md
 								 transition duration-300 ease-in-out flex items-center'
                                 to={"/secret-dashboard"}
                             >
@@ -72,7 +72,7 @@ const Navbar = () => {
                         {user ? (
                             <div className="relative inline-block text-left" ref={dropdownRef} >
                                 <button
-                                    className="bg-gray-700 hover:bg-gray-900 text-white py-2 px-4 rounded-md flex items-center transition duration-300 ease-in-out"
+                                    className="text-black  py-2 px-4 rounded-md flex items-center transition duration-300 ease-in-out"
                                     onClick={toggleDropdown}
                                 >
                                     <User size={18} />
@@ -123,7 +123,7 @@ const Navbar = () => {
                             <>
                                 <Link
                                     to={"/signup"}
-                                    className='bg-gray-600 hover:bg-gray-700 text-white py-2 px-2 sm:px-4 
+                                    className='text-black py-2 px-2 sm:px-4 
 									rounded-md flex items-center transition duration-300 ease-in-out'
                                 >
                                     <UserPlus className='mr-2' size={18} />
@@ -131,11 +131,14 @@ const Navbar = () => {
                                 </Link>
                                 <Link
                                     to={"/login"}
-                                    className='bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 
+                                    className='text-black py-2  
 									rounded-md flex items-center transition duration-300 ease-in-out'
                                 >
                                     <LogIn className='mr-2' size={18} />
+
+                                    Log In
                                 </Link>
+
                             </>
                         )}
                     </nav>
