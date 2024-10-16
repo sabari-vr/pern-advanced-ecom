@@ -38,7 +38,7 @@ export const ManageOrders = () => {
     return (
         <div className="min-h-screen  p-4">
             <div className="max-w-4xl mx-auto  p-6 rounded-lg shadow-lg">
-                <h2 className="text-2xl font-bold mb-4">My Orders | Total :- {totalOrders}</h2>
+                <h2 className="text-2xl font-bold mb-4">Orders | Total :- {totalOrders}</h2>
                 {orders?.length > 0 ? (
                     orders.map((order) => {
                         const isActive = activeOrder === order.id;
@@ -52,8 +52,8 @@ export const ManageOrders = () => {
                                 >
                                     <div>
                                         <h3 className="text-lg font-semibold">Order ID: {order.payment.razorpayOrderId}</h3>
-                                        <p className="text-gray-300">Order Date: {new Date(order.orderDate).toLocaleDateString()}</p>
-                                        <p className="text-gray-300">Last Updated Date: {new Date(order.updatedAt).toLocaleDateString()}</p>
+                                        <p className="text-gray-700">Order Date: {new Date(order.orderDate).toLocaleDateString()}</p>
+                                        <p className="text-gray-700">Last Updated Date: {new Date(order.updatedAt).toLocaleDateString()}</p>
                                     </div>
                                     <span className={`transform transition-transform ${isActive ? 'rotate-180' : ''}`}>
                                         ⌄
@@ -70,24 +70,24 @@ export const ManageOrders = () => {
 
                                         <div className="mb-6">
                                             <h3 className="text-lg font-semibold">User Details</h3>
-                                            <p className="text-gray-300">Name: {order.user.name}</p>
-                                            <p className="text-gray-300">Email: {order.user.email}</p>
-                                            <p className="text-gray-300">Contact No: {order.address.contact}</p>
+                                            <p className="text-gray-700">Name: {order.user.name}</p>
+                                            <p className="text-gray-700">Email: {order.user.email}</p>
+                                            <p className="text-gray-700">Contact No: {order.address.contact}</p>
                                         </div>
 
                                         <div className="mb-6">
                                             <h3 className="text-lg font-semibold">Payment Details</h3>
-                                            <p className="text-gray-300">Order Id: {order.payment.razorpayOrderId}</p>
-                                            <p className="text-gray-300">Payment Id: {order.payment.razorpayPaymentId}</p>
+                                            <p className="text-gray-700">Order Id: {order.payment.razorpayOrderId}</p>
+                                            <p className="text-gray-700">Payment Id: {order.payment.razorpayPaymentId}</p>
                                         </div>
 
                                         <div className="mb-6">
                                             <h3 className="text-lg font-semibold">Shipping Address</h3>
-                                            <p className="text-gray-300">{order.address.name}</p>
-                                            <p className="text-gray-300">{order.address.address}</p>
-                                            <p className="text-gray-300">{order.address.city}, {order.address.pincode}</p>
-                                            <p className="text-gray-300">{order.address.country}</p>
-                                            <p className="text-gray-300">Contact No: {order.address.contact}</p>
+                                            <p className="text-gray-700">{order.address.name}</p>
+                                            <p className="text-gray-700">{order.address.address}</p>
+                                            <p className="text-gray-700">{order.address.city}, {order.address.pincode}</p>
+                                            <p className="text-gray-700">{order.address.country}</p>
+                                            <p className="text-gray-700">Contact No: {order.address.contact}</p>
                                         </div>
 
                                         <div className="mb-6">
@@ -96,12 +96,12 @@ export const ManageOrders = () => {
                                                 {order.items.map((item, index) => (
                                                     <div key={index} className="flex justify-between items-center border shadow-sm p-4 rounded-lg">
                                                         <div>
-                                                            <p className="text-gray-300">Product Name: {item.name}</p>
-                                                            <p className="text-gray-100">Colour: {item.color}</p>
-                                                            <p className="text-gray-100">Size: {item.size}</p>
-                                                            <p className="text-gray-100">Quantity: {item.quantity}</p>
+                                                            <p className="text-gray-700">Product Name: {item.name}</p>
+                                                            <p className="text-gray-500">Colour: {item.color}</p>
+                                                            <p className="text-gray-500">Size: {item.size}</p>
+                                                            <p className="text-gray-500">Quantity: {item.quantity}</p>
                                                         </div>
-                                                        <div className="font-semibold text-gray-300">
+                                                        <div className="font-semibold text-gray-700">
                                                             ₹{item.price * item.quantity}
                                                         </div>
                                                     </div>
@@ -117,7 +117,7 @@ export const ManageOrders = () => {
                                             <select
                                                 value={selectedStatus ? selectedStatus : order.orderStatus}
                                                 onChange={(e) => handleStatusChange(e.target.value)}
-                                                className="border rounded-md p-1 " style={{ color: 'white' }}
+                                                className="border rounded-md p-1 " style={{ color: 'black' }}
                                             >
                                                 <option value="processing">Processing</option>
                                                 <option value="shipped">Shipped</option>
@@ -148,7 +148,7 @@ export const ManageOrders = () => {
                         <button
                             onClick={() => handlePageChange(currentPage - 1)}
                             disabled={!hasPreviousPage}
-                            className={`p-2 text-sm font-medium rounded-md ${!hasPreviousPage ? 'bg-gray-600 text-gray-400' : 'bg-gray-700 text-white hover:bg-gray-600'}`}
+                            className={`p-2 text-sm font-medium rounded-md ${!hasPreviousPage ? 'bg-gray-200 text-gray-700' : 'bg-gray-700 text-white hover:bg-gray-600'}`}
                         >
                             Previous
                         </button>
@@ -158,7 +158,7 @@ export const ManageOrders = () => {
                         <button
                             onClick={() => handlePageChange(currentPage + 1)}
                             disabled={!hasNextPage}
-                            className={`p-2 text-sm font-medium rounded-md ${!hasNextPage ? 'bg-gray-600 text-gray-400' : 'bg-gray-700 text-white hover:bg-gray-600'}`}
+                            className={`p-2 text-sm font-medium rounded-md ${!hasNextPage ? 'bg-gray-200 text-gray-700' : 'bg-gray-700 text-white hover:bg-gray-600'}`}
                         >
                             Next
                         </button>

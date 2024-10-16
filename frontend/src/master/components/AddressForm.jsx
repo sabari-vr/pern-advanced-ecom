@@ -2,14 +2,14 @@ import React from 'react';
 
 export const AddressForm = ({ handleChange, newAddress }) => {
     return (
-        <div className="space-y-4" style={{ color: 'white' }}>
+        <div className="space-y-4" style={{ color: 'black' }}>
             <input
                 type="text"
                 name="name"
                 placeholder="Name"
                 value={newAddress.name}
                 onChange={(e) => handleChange(e.target)}
-                className="border bg-transparent border-gray-100 p-3 rounded-lg w-full focus:ring-2 focus:ring-blue-500 outline-none transition"
+                className="border bg-transparent border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-gray-500 outline-none transition"
             />
             <input
                 type="number"
@@ -17,7 +17,7 @@ export const AddressForm = ({ handleChange, newAddress }) => {
                 placeholder="Contact Number"
                 value={newAddress.contact}
                 onChange={(e) => handleChange(e.target)}
-                className="border bg-transparent border-gray-100 p-3 rounded-lg w-full focus:ring-2 focus:ring-blue-500 outline-none transition"
+                className="border bg-transparent border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-gray-500 outline-none transition"
             />
             <textarea
                 type="text"
@@ -25,7 +25,7 @@ export const AddressForm = ({ handleChange, newAddress }) => {
                 placeholder="Address"
                 value={newAddress.address || ""}
                 onChange={(e) => handleChange(e.target)}
-                className="border bg-transparent border-gray-100 p-3 rounded-lg w-full h-24 focus:ring-2 focus:ring-blue-500 outline-none transition"
+                className="border bg-transparent border-gray-300 p-3 rounded-lg w-full h-24 focus:ring-2 focus:ring-gray-500 outline-none transition"
             />
             <input
                 type="text"
@@ -33,7 +33,7 @@ export const AddressForm = ({ handleChange, newAddress }) => {
                 placeholder="City"
                 value={newAddress.city}
                 onChange={(e) => handleChange(e.target)}
-                className="border bg-transparent border-gray-100 p-3 rounded-lg w-full focus:ring-2 focus:ring-blue-500 outline-none transition"
+                className="border bg-transparent border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-gray-500 outline-none transition"
             />
             <input
                 type="text"
@@ -41,7 +41,7 @@ export const AddressForm = ({ handleChange, newAddress }) => {
                 placeholder="Pincode"
                 value={newAddress.pincode}
                 onChange={(e) => handleChange(e.target)}
-                className="border bg-transparent border-gray-100 p-3 rounded-lg w-full focus:ring-2 focus:ring-blue-500 outline-none transition"
+                className="border bg-transparent border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-gray-500 outline-none transition"
             />
             <input
                 type="text"
@@ -49,7 +49,7 @@ export const AddressForm = ({ handleChange, newAddress }) => {
                 placeholder="Country"
                 value={newAddress.country}
                 onChange={(e) => handleChange(e.target)}
-                className="border bg-transparent border-gray-100 p-3 rounded-lg w-full focus:ring-2 focus:ring-blue-500 outline-none transition"
+                className="border bg-transparent border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-gray-500 outline-none transition"
             />
         </div>
     );

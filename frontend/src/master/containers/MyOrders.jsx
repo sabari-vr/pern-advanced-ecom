@@ -59,7 +59,7 @@ export const MyOrders = () => {
                                 >
                                     <div>
                                         <h3 className="text-lg font-semibold">Order ID: {order.id}</h3>
-                                        <p className="text-gray-300">Order Date: {new Date(order.orderDate).toLocaleDateString()}</p>
+                                        <p className="text-gray-700">Order Date: {new Date(order.orderDate).toLocaleDateString()}</p>
                                     </div>
                                     <span className={`transform transition-transform ${isActive ? 'rotate-180' : ''}`}>
                                         ⌄
@@ -76,11 +76,11 @@ export const MyOrders = () => {
 
                                         <div className="mb-6">
                                             <h3 className="text-lg font-semibold">Shipping Address</h3>
-                                            <p className="text-gray-300">{order.address.name}</p>
-                                            <p className="text-gray-300">{order.address.address}</p>
-                                            <p className="text-gray-300">{order.address.city}, {order.address.pincode}</p>
-                                            <p className="text-gray-300">{order.address.country}</p>
-                                            <p className="text-gray-300">Contact: {order.address.contact}</p>
+                                            <p className="text-gray-700">{order.address.name}</p>
+                                            <p className="text-gray-700">{order.address.address}</p>
+                                            <p className="text-gray-700">{order.address.city}, {order.address.pincode}</p>
+                                            <p className="text-gray-700">{order.address.country}</p>
+                                            <p className="text-gray-700">Contact: {order.address.contact}</p>
                                         </div>
 
                                         <div className="mb-6">
@@ -89,12 +89,12 @@ export const MyOrders = () => {
                                                 {order.items.map((item, index) => (
                                                     <div key={index} className="flex justify-between items-center border shadow-sm p-4 rounded-lg">
                                                         <div>
-                                                            <p className="text-gray-300">Product Name: {item.name}</p>
-                                                            <p className="text-gray-100">Colour: {item.color}</p>
-                                                            <p className="text-gray-100">Size: {item.size}</p>
-                                                            <p className="text-gray-100">Quantity: {item.quantity}</p>
+                                                            <p className="text-gray-700">Product Name: {item.name}</p>
+                                                            <p className="text-gray-500">Colour: {item.color}</p>
+                                                            <p className="text-gray-500">Size: {item.size}</p>
+                                                            <p className="text-gray-500">Quantity: {item.quantity}</p>
                                                         </div>
-                                                        <div className="font-semibold text-gray-300">
+                                                        <div className="font-semibold text-gray-700">
                                                             ₹{item.price * item.quantity}
                                                         </div>
                                                     </div>
@@ -143,7 +143,7 @@ export const MyOrders = () => {
                         <button
                             onClick={() => handlePageChange(currentPage - 1)}
                             disabled={!hasPreviousPage}
-                            className={`p-2 text-sm font-medium rounded-md ${!hasPreviousPage ? 'bg-gray-600 text-gray-400' : 'bg-gray-700 text-white hover:bg-gray-600'}`}
+                            className={`p-2 text-sm font-medium rounded-md ${!hasPreviousPage ? 'bg-gray-200 text-gray-700' : 'bg-gray-700 text-white hover:bg-gray-600'}`}
                         >
                             Previous
                         </button>
@@ -153,7 +153,7 @@ export const MyOrders = () => {
                         <button
                             onClick={() => handlePageChange(currentPage + 1)}
                             disabled={!hasNextPage}
-                            className={`p-2 text-sm font-medium rounded-md ${!hasNextPage ? 'bg-gray-600 text-gray-400' : 'bg-gray-700 text-white hover:bg-gray-600'}`}
+                            className={`p-2 text-sm font-medium rounded-md ${!hasNextPage ? 'bg-gray-200 text-gray-700' : 'bg-gray-700 text-white hover:bg-gray-600'}`}
                         >
                             Next
                         </button>

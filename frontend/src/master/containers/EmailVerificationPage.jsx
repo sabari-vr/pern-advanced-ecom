@@ -66,7 +66,7 @@ const EmailVerificationPage = () => {
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8 }}
 			>
-				<h2 className='mt-6 text-center text-3xl font-extrabold text-emerald-400'>Forgot Password</h2>
+				<h2 className='mt-6 text-center text-3xl font-extrabold text-gray-800'>Forgot Password</h2>
 			</motion.div>
 
 			<motion.div
@@ -75,8 +75,8 @@ const EmailVerificationPage = () => {
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8, delay: 0.2 }}
 			>
-				<div className='bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10'>
-					<p className='text-center text-gray-300 mb-6'>Enter the 6-digit code sent to your email address.</p>
+				<div className='bg-gray-100 py-8 px-4 shadow sm:rounded-lg sm:px-10'>
+					<p className='text-center text-gray-700 mb-6'>Enter the 6-digit code sent to your email address.</p>
 
 					<form onSubmit={handleSubmit} className='space-y-6'>
 						<div className='flex justify-between'>
@@ -89,7 +89,7 @@ const EmailVerificationPage = () => {
 									value={digit}
 									onChange={(e) => handleChange(index, e.target.value)}
 									onKeyDown={(e) => handleKeyDown(index, e)}
-									className='w-12 h-12 text-center text-2xl font-bold bg-gray-700 text-white border-2 border-gray-600 rounded-lg focus:border-green-500 focus:outline-none'
+									className='w-12 h-12 text-center text-2xl font-bold bg-gray-200 text-black border-2 border-gray-100 rounded-lg focus:border-gray-200 focus:outline-none'
 								/>
 							))}
 						</div>
@@ -99,7 +99,10 @@ const EmailVerificationPage = () => {
 							whileTap={{ scale: 0.95 }}
 							type='submit'
 							disabled={isPending || code.some((digit) => !digit)}
-							className='w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:from-green-600 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 disabled:opacity-50'
+							className='w-full flex justify-center py-2 px-4 border border-transparent 
+							rounded-md shadow-sm text-sm font-medium text-white bg-gray-900
+							 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2
+							  focus:ring-gray-900 transition duration-150 ease-in-out disabled:opacity-50'
 						>
 							{isPending ? "Verifying..." : "Verify Email"}
 						</motion.button>

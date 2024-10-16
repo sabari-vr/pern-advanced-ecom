@@ -22,13 +22,13 @@ export const MyProfile = () => {
         <div className="container mx-auto p-8 max-w-4xl  shadow-md rounded-lg">
             <h1 className="text-3xl font-bold mb-6 text-white-200">My Profile</h1>
             <div className="mb-8  p-4 border rounded-lg  shadow-sm">
-                <p className="text-lg font-medium text-gray-100"><strong>Name:</strong> {user.name}</p>
-                <p className="text-lg font-medium text-gray-100"><strong>Email:</strong> {user.email}</p>
+                <p className="text-lg font-medium text-gray-800"><strong>Name:</strong> {user.name}</p>
+                <p className="text-lg font-medium text-gray-800"><strong>Email:</strong> {user.email}</p>
             </div>
 
-            <h2 className="text-2xl font-semibold mb-4 text-gray-200">Manage Addresses</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-gray-700">Manage Addresses</h2>
             {isLoading ? (
-                <p className="text-lg text-gray-500">Loading addresses...</p>
+                <p className="text-lg text-gray-700">Loading addresses...</p>
             ) : (
                 <div>
                     <ul className="mb-8 space-y-4">
@@ -54,7 +54,7 @@ export const MyProfile = () => {
                                     </div>
                                 ) : (
                                     <div className="flex justify-between items-center">
-                                        <p className="text-gray-100">{address.name}, {address.contact}, {address.address}, {address.city},{address.pincode}, {address.country}</p>
+                                        <p className="text-gray-700">{address.name}, {address.contact}, {address.address}, {address.city},{address.pincode}, {address.country}</p>
                                         <div className="flex space-x-4">
                                             <button
                                                 onClick={() => setEditingAddress(address)}
@@ -76,11 +76,11 @@ export const MyProfile = () => {
                     </ul>
 
                     <div className="mb-8 p-4 rounded-lg shadow-sm">
-                        <h3 className="text-xl font-semibold mb-4 text-gray-100">Add New Address</h3>
+                        <h3 className="text-xl font-semibold mb-4 text-gray-700">Add New Address</h3>
                         <AddressForm handleChange={handleCreateChange} newAddress={newAddress} />
                         <button
                             onClick={handleAddAddress}
-                            className="mt-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+                            className="mt-4 bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors"
                         >
                             Add Address
                         </button>
